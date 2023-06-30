@@ -1,0 +1,254 @@
+1、
+
+# coding:UTF-8
+infos = ["陈浩东","于顺","公孙夏丹"]		# 定义一个列表，该列表的长度为3
+# 列表使用可以通过索引的形式来完成
+print(infos[0] , end="、")
+print(infos[1] , end="、")
+print(infos[2] , end="、")
+
+
+2、
+# coding:UTF-8
+list_a = []
+list_b = None
+print("第一个列表的地址：%d，对应的类型：%s" % (id(list_a),type(list_a)))
+print("第二个列表的地址：%d，对应的类型：%s" % (id(list_b),type(list_b)))
+
+3、
+
+# coding:UTF-8
+infos = ["陈浩东","于顺","公孙夏丹"]		# 定义一个列表，该列表的长度为3
+# 列表使用可以通过索引的形式来完成
+print(infos[3] , end="、")
+
+4、
+
+
+# coding:UTF-8
+infos = ["陈浩东","于顺","公孙夏丹"]		# 定义一个列表，该列表的长度为3
+# 列表使用可以通过索引的形式来完成
+print(infos[-1] , end="、")
+print(infos[-2] , end="、")
+print(infos[-3] , end="、")
+print(infos[-4] , end="、")	# 错误的索引
+
+5、
+# coding:UTF-8
+# 数据的意义（假设为一组数据），name、femal、salary
+infos = ["陈浩东",True,100]	# 列表里面保存了多个数据
+# 列表使用可以通过索引的形式来完成
+print(infos[0] , end="、")
+print(infos[1] , end="、")
+print(infos[2] , end="、")
+
+6、
+
+# coding:UTF-8
+infos = ["陈浩东","于顺","公孙夏丹"]
+print("三大贱客",end="：")
+for item in infos:
+	print(item,end="、")
+
+
+7、
+# coding:UTF-8
+infos = ["陈浩东","于顺","公孙夏丹"]
+for index in range(len(infos)):
+	print(infos[index],end="、")
+
+8、
+# coding:UTF-8
+infos = ["陈浩东","于顺","公孙夏丹"]
+infos [0] = "王冲"		# 修改第一大贱客
+print("三大贱客",end="：")
+for item in infos:
+	print(item,end="、")
+
+9、
+# coding:UTF-8
+infos = ["陈浩东","于顺","公孙夏丹"] * 3 # 重复定义
+nothing = [None] * 3	# 列表内容为空
+print(infos)		# 直接输出序列的内容
+print(nothing)
+
+10、
+
+# coding:UTF-8
+infos = ["陈浩东","于顺","公孙夏丹"] + ["张冠佑","王冲"]
+print(infos)		# 直接输出序列的内容
+
+11、
+
+列表对象（变量） [开始索引 : 结束索引 : 步长]
+
+12、
+
+# coding:UTF-8
+# 定义一个有很多内容的列表
+infos = ["陈浩东","于顺","公孙夏丹","张冠佑","王冲" , "林雨" , "张青"]
+# 在进行分片数据获取的时候，即便获取的结束索引的值超过了范围，那么也没错
+infos_slice_a = infos[3:9]		# 从索引3 ~ 9范围的数据
+print("截取的第一个子分片列表：%s" % infos_slice_a)
+infos_slice_b = infos[-6:-3]		# 从索引-6 ~ -3范围的数据
+print("截取的子分片列表：%s" % infos_slice_b)
+
+
+13、
+# coding:UTF-8
+# 定义一个有很多内容的列表
+infos = ["陈浩东","于顺","公孙夏丹","张冠佑","王冲" , "林雨" , "张青"]
+infos_slice_a = infos[3:]
+print("截取的第一个子分片列表：%s" % infos_slice_a)
+infos_slice_b = infos[-3:]
+print("截取的第二个子分片列表：%s" % infos_slice_b)
+infos_slice_c = infos[:-5]
+print("截取的第三个子分片列表：%s" % infos_slice_c)
+
+14、
+
+# coding:UTF-8
+# 定义一个有很多内容的列表
+infos = ["陈浩东","于顺","公孙夏丹","张冠佑","王冲" , "林雨" , "张青"]
+infos[2:6] = ["小李老师"]
+print("替换后的分片内容：%s" % infos)
+
+
+15、
+
+# coding:UTF-8
+# 定义一个有很多内容的列表
+infos = ["陈浩东","于顺","公孙夏丹","张冠佑","王冲" , "林雨" , "张青"]
+infos[2:] = []
+print("替换后的分片内容：%s" % infos)
+
+16、
+
+# coding:UTF-8
+# 定义一个有很多内容的列表
+infos = ["陈浩东","于顺","公孙夏丹","张冠佑","王冲" , "林雨" , "张青"]
+print("替换前的列表内容：%s" % infos)
+infos[1:6:2] = ["小李老师","陈楠","冯大神"]
+print("替换后的分片内容：%s" % infos)
+
+17、
+# coding:UTF-8
+# 定义一个有很多内容的列表
+infos = ["陈浩东","于顺","公孙夏丹","张冠佑","王冲" , "林雨" , "张青"]
+print("替换前的列表内容：%s" % infos)
+infos[1:6:2] = ["小李老师"]
+print("替换后的分片内容：%s" % infos)
+
+18、
+
+# coding:UTF-8
+# 定义一个有很多内容的列表
+infos = ["陈浩东","于顺","公孙夏丹","张冠佑","王冲" , "林雨" , "张青"]
+name = '张青'
+flag = False 
+for item in infos:
+	if name == item:
+		flag = True
+if flag:
+	print("数据查找到了！")
+
+19、
+
+# coding:UTF-8
+# 定义一个有很多内容的列表
+infos = ["陈浩东","于顺","公孙夏丹","张冠佑","王冲" , "林雨" , "张青"]
+name = '张青S'
+if name not in infos:
+	print("数据可以查找到！")
+else:
+	print("没有匹配的信息！！！！")
+
+20、
+# coding:UTF-8
+infos = []		# 空的列表信息
+print("初始化列表长度：%d" % len(infos))
+infos.append("小李老师")
+infos.insert(0,"www.mldn.cn")		# 追加在索引0的位置
+print("数据追加后的列表长度：%d，列表内容：%s" % (len(infos),infos))
+
+
+21、
+# coding:UTF-8
+infos = []		# 空的列表信息
+print("初始化列表长度：%d" % len(infos))
+infos.append("小李老师A")
+infos.append("小李老师B")
+infos.append("小李老师C")
+print("数据追加后的列表长度：%d，列表内容：%s" % (len(infos),infos))
+
+
+22、
+
+# coding:UTF-8
+infos = []		# 空的列表信息
+print("初始化列表长度：%d，地址：%d" % (len(infos),id(infos)))
+infos.append("小李老师")
+infos.extend(["美丽的夏丹","龌龊的浩东"])
+print("数据追加后的列表长度：%d，地址：%d，列表内容：%s" % (len(infos),id(infos),infos))
+
+
+23、
+
+# coding:UTF-8
+infos = ["李兴华","www.silne.cn","www.baidu.com"]
+msgs = infos.copy() 		# 列表拷贝操作
+print("infos列表的保存地址编号：%d，列表内容：%s" % (id(infos),infos))
+print("msgs列表的保存地址编号：%d，列表内容：%s" % (id(msgs),msgs))
+
+
+24、
+
+# coding:UTF-8
+infos = ["陈浩东","公孙夏丹"]
+print("数据删除前的列表内容：%s" % (infos))
+# remove()操作需要根据内容删除，并且没有返回值
+if "公孙夏丹" in infos:
+	print("执行数据删除remove()函数：%s" % infos.remove("公孙夏丹"))
+print("数据删除后的列表内容：%s" % (infos))
+
+
+25、
+# coding:UTF-8
+infos = ["陈浩东","公孙夏丹"]
+print("数据删除前的列表内容：%s" % (infos))
+del infos[1]
+print("数据删除后的列表内容：%s" % (infos))
+
+
+26、
+# coding:UTF-8
+infos = ["陈浩东","公孙夏丹"]
+print("数据删除前的列表内容：%s" % (infos))
+print("执行数据删除pop()函数：%s" % infos.pop(1))
+print("数据删除后的列表内容：%s" % (infos))
+
+
+27、
+
+# coding:UTF-8
+infos = ["陈浩东","公孙夏丹"]
+print("数据删除前的列表内容：%s" % (infos))
+print("执行数据删除pop()函数：%s" % infos.pop(0))
+print("执行数据删除pop()函数：%s" % infos.pop(0))
+print("数据删除后的列表内容：%s" % (infos))
+
+
+28、
+
+# coding:UTF-8
+infos = []
+for item in range(10):
+	infos.append("小李老师 - %d" % item)
+print("列表初始化内容：%s" % infos)
+print("列表数据弹出处理：")
+for item in range(len(infos)):
+	print("列表数据弹出：%s" % infos.pop(0))	# 索引会改变，但是从头开始弹出
+
+
+
+
