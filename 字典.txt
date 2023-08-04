@@ -1,0 +1,112 @@
+1、
+# coding:UTF-8
+# []定义列表、()定义元组、{}定义字典
+infos = {"mldn":"www.mldn.cn","teacher":"小李老师",None:"空空的，啥都没有"}
+print("mldn对应的内容：%s" % infos["mldn"]) # 根据key查找内容
+print("teacher对应的内容为：%s" % infos["teacher"])
+print("None对应的内容为：%s" % infos[None])
+
+2、
+
+# coding:UTF-8
+# []定义列表、()定义元组、{}定义字典
+infos = {"mldn":"www.mldn.cn","teacher":"小李老师","teacher":"李兴华"}
+print(infos)	# 字典同样可以进行直接输出
+
+3、
+# coding:UTF-8
+# 如果要想将列表转为字典，则每一个列表只能够由两个内容所组成
+infos = dict([["mldn","www.mldn.cn"],["teacher","李兴华"]])
+member = dict(name="小李老师",age=18,score=97.8)
+print(infos)
+print(member)
+
+4、
+# coding:UTF-8
+# 如果要想将列表转为字典，则每一个列表只能够由两个内容所组成
+member = dict(name="小李老师",age=18,score=97.8)
+if "name" in member:
+	print("Key为“%s”的内容存在，对应的数据为：“%s”" % ("name",member["name"]))
+
+5、
+# coding:UTF-8
+# 如果要想将列表转为字典，则每一个列表只能够由两个内容所组成
+member = dict(name="小李老师",age=18,score=97.8)
+for key in member:
+	print("%s" % (key))
+
+6、
+# coding:UTF-8
+# 如果要想将列表转为字典，则每一个列表只能够由两个内容所组成
+member = dict(name="小李老师",age=18,score=97.8)
+for key in member:
+	print("%s = %s" % (key,member[key]))
+
+
+7、
+# coding:UTF-8
+# 如果要想将列表转为字典，则每一个列表只能够由两个内容所组成
+member = dict(name="小李老师",age=18,score=97.8)
+for key,value in member.items():
+	print("%s = %s" % (key,value))
+
+
+8、
+
+# coding:UTF-8
+member = dict(name="小李老师",age=18,score=97.8)
+# 该更新之中，修改了一项内容（新内容替换旧内容），并且追加一项新的数据
+member.update({"name":"李兴华老师","home":"www.mldn.cn"})
+print(member)
+
+9、
+# coding:UTF-8
+member = dict(name="小李老师",age=18,score=97.8)
+del member["hello"]	# 要删除的key不存在
+print(member)
+
+10、
+# coding:UTF-8
+member = dict(name="小李老师",age=18,score=97.8)
+# member.pop("hello")		# key不存在会有KeyError异常
+member.pop("age")
+print(member)
+
+
+11、
+# coding:UTF-8
+member = dict(name="小李老师",age=18,score=97.8)
+item = member.popitem()	# 弹出之后可以接收完整的映射项
+print(member)
+print(item)	# 输出弹出的内容
+print("key = %s、value = %s" % (item[0],item[1]))
+
+
+12、
+# coding:UTF-8
+member = dict(name="小李老师",age=18,score=97.8)
+print("Key存在：%s" % member.get("name"))
+print("Key不存在且未设置默认值：%s" % member.get("hello"))
+print("Key不存在且设置默认值：%s" % member.get("hello","不存在的Key"))
+
+13、
+
+
+# coding:UTF-8
+# fromkeys()里面出现的全部都是key，而内容是同一个
+dict_a = dict.fromkeys(("mldn","李兴华"),"www.mldn.cn")
+print(dict_a)
+# 字符串本身也属于一个序列，如果将key序列定义为字符串，则表示获取字符串每一个字符作为key
+dict_b = dict.fromkeys("hello",100)
+print(dict_b)
+
+14、
+# coding:UTF-8
+nums = dict(one=1,two=2,three=3)
+print("字典元素个数：%d" % len(nums))
+print("字典value总和：%d" % sum(nums.values()))
+print("字典Key的最大值：%s、字典Key的最小值：%s" % (max(nums),min(nums)))
+
+
+
+

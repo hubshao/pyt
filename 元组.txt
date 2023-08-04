@@ -1,0 +1,37 @@
+1、
+
+# coding:UTF-8
+infos = ("陈浩东","于顺","公孙夏丹")
+for item in infos:
+	print(item,end="、")
+
+2、
+# coding:UTF-8
+# 元组定义的时候如果只有一个内容必须有“,”，否则就成为了字符串
+print("观察数据类型：%s、数据类型：%s、数据类型：%s" % (type(("陈浩东",)),type(("陈浩东")),type(["陈浩东"])))
+infos = ("陈浩东",)		# 现在定义的元组只有一个内容，必须有“,”
+infos [0] = "公孙夏丹"
+print(infos)            #元组不支持修改
+
+3、
+# coding:UTF-8
+infos = ("陈浩东","公孙夏丹") * 2 + ("于顺","王冲")
+print(infos)
+
+
+4、
+
+# coding:UTF-8
+infos = ["陈浩东","公孙夏丹"]
+msgs = tuple(infos)
+print("msgs变量的类型：%s，内容为：%s" % (type(msgs),msgs))
+
+
+5、
+
+# coding:UTF-8
+infos = ("陈浩东","公孙夏丹")
+msgs = list(infos)
+print("msgs变量的类型：%s，内容为：%s" % (type(msgs),msgs))
+
+

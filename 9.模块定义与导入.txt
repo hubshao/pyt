@@ -1,0 +1,130 @@
+1、
+def 函数:
+	xxx
+def 函数:
+	xxx
+def 函数:
+	xxx
+def 函数:
+	xxx
+def 函数:
+	xxx
+	....
+
+
+2、
+# coding:UTF-8
+def get_info():
+	return "魔乐科技软件学院：www.mldn.cn"
+
+3、
+	import 包.模块名称 [as 别名] , 包.模块名称 [as 别名] , ...
+
+
+4、
+# coding:UTF-8
+import cn.mldn.info.message		# 导入message模块
+# 如果现在只是导入了模块，那么在调用里面结构的时候要写上模块名称
+print(cn.mldn.info.message.get_info())	# 调用模块函数
+print(cn.mldn.info.message)	# 输出模块的信息
+
+
+
+5、
+# coding:UTF-8
+def get_info():
+	print("get_info()中的“__name__”：%s" % (__name__))
+	return "魔乐科技软件学院：www.mldn.cn"
+
+
+6、
+# coding:UTF-8
+import cn.mldn.info.message	as msg	# 导入message模块
+# 如果现在只是导入了模块，那么在调用里面结构的时候要写上模块名称
+print(msg.get_info())	# 调用模块函数
+print(msg)	# 输出模块的信息
+
+
+
+7、
+
+# coding:UTF-8
+from cn.mldn.info.message import get_info 	# 导入指定模块的内容
+print(get_info())
+
+8、
+
+# coding:UTF-8
+from cn.mldn.info.message import * 	# 导入指定模块的内容
+print(get_info())
+
+9、
+
+# coding:UTF-8
+_url = "www.mldn.cn"
+def _hello():
+	print("www.jixianit.com")
+def get_info():
+	return "魔乐科技软件学院：www.mldn.cn"
+
+10、
+# coding:UTF-8
+from cn.mldn.info.message import * 	# 导入指定模块的内容
+print(get_info())
+import cn.mldn.info.message
+print(cn.mldn.info.message._url)
+cn.mldn.info.message._hello()
+
+
+11、
+# coding:UTF-8
+from cn.mldn.info.message import get_info as msg 	# 导入指定模块的内容
+print(msg())
+
+12、
+# coding:UTF-8
+from cn.mldn.info.message import get_info
+print(dir(get_info))
+print("-" * 50)
+import cn.mldn.info.message
+print(dir(cn.mldn.info.message))
+
+
+13、
+# coding:UTF-8
+def get_mldn():
+	return "魔乐科技软件学院：www.mldn.cn"
+
+14、
+# coding:UTF-8
+def get_jixianit():
+	return "极限IT程序员：www.jixianit.com"
+
+
+15、
+
+__all__=["message","information"]
+
+16、
+
+# coding:UTF-8
+from cn.mldn.info import *		# 只有通配符可以观察到
+print(message.get_mldn())
+print(information.get_jixianit())
+
+
+17、
+# coding:UTF-8
+from cn.mldn.info import *		# 只有通配符可以观察到
+print(message.get_mldn())
+from cn.mldn.info import information
+print(information.get_jixianit())
+
+
+
+
+
+
+
+
+

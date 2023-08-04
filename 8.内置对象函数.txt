@@ -1,0 +1,100 @@
+1、
+# coding:UTF-8
+print("input()函数是否可以调用：%s" % callable(input))
+print("“hello”字符串是否可以调用：%s" % callable("hello"))
+def get_info():
+	return "www.mldn.cn"
+temp_fun = get_info 		# 函数引用
+print("get_info()函数是否可以调用：%s" % callable(get_info))
+print("temp_fun引用对象是否可以调用：%s" % callable(temp_fun))
+
+
+2、
+# coding:UTF-8
+num = 10 		# 定义一个全局变量
+# 当计算完成之后，eval()函数会返回表达式的计算结果
+result = eval("3 * num")		# 此时采用的是一个字符串定义的计算表达式
+print("乘法计算结果：%d" % result)
+
+
+3、
+# coding:UTF-8
+global_num = 10 		# 定义全局变量
+global_str = "数据加法计算：{}"	# 字符串格式化文本
+# 所有的参数必须包装在字典之中，key就是eval()中使用的名称
+var_dict = dict(num=global_num,info=global_str) # 字典
+result = eval("info.format(num*2)",var_dict)	 # 传递字典
+print(result)
+
+4、
+
+# coding:UTF-8
+list_str = "[1,2,3]"		# 字符串，但是语法结构为列表
+tuple_str = "(1,2,3)"		# 字符串，但是语法结构为元组
+# 字符串作为key是最为常见的，其次就是数字作为key
+dict_str = "{1:'one',2:'two',3:'three'}"	# 字符串，但是语法结构为字典
+list_eval = eval(list_str)
+tuple_eval = eval(tuple_str)
+dict_eval = eval(dict_str)
+print("【list】序列数据：%s，序列类型：%s" % (list_eval,type(list_eval)))
+print("【tuple】序列数据：%s，序列类型：%s" % (tuple_eval,type(tuple_eval)))
+print("【dict】序列数据：%s，序列类型：%s" % (dict_eval,type(dict_eval)))
+
+
+
+5、
+# coding:UTF-8
+statement = "for item in range(1,10,2):" \
+			"	print(item,end='、')"
+eval(statement)
+
+6、
+# coding:UTF-8
+statement = "for item in range(1,10,2):" \
+			"	print(item,end='、')"
+result = exec(statement)		# 观察是否有内容
+print(result)
+
+7、
+# coding:UTF-8
+num = 10 
+exec("num += 20")
+print(num)
+
+8、
+
+# coding:UTF-8
+statement = "100 + 200 - 50"	# 这个表达式有计算，并且有返回结果
+code_eval = compile(statement,"","eval")		# 定义变量对象
+result = eval(code_eval)		# 执行代码
+print("计算结果：%d" % result)
+
+9、
+
+# coding:UTF-8
+input_data = None
+statement = "input_data = input('请输入你最喜欢的学校：')"	# 代码
+code_exec = compile(statement,"","single")
+exec(code_exec)		# 执行编译后的对象
+print("输入数据为：%s" % input_data)
+
+10、
+
+# coding:UTF-8
+input_data = None
+statement = "input_data = input('请输入你最喜欢的学校：')"	# 代码
+code_exec = compile(statement,"","exec")
+exec(code_exec)		# 执行编译后的对象
+print("输入数据为：%s" % input_data)
+
+
+11、
+# coding:UTF-8
+infos = []		# 定义一个空的列表（不是None）
+statement = "for item in range(2):" \
+			"	infos.append(input('请输入你经常访问的网址：'))"	# 多行代码
+code_exec = compile(statement,"","exec")	# 多行代码
+exec(code_exec)
+exec("print('经常访问的网站是：%s' % infos)")
+
+

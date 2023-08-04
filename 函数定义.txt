@@ -1,0 +1,155 @@
+1、
+
+# coding:UTF-8
+# 在本文件之中所有的结构都可以调用此变量
+num = 100		# 该变量定义在了文件里面，所以是全局变量
+def out():
+	print(num)
+def output():
+	print(num)
+out()
+output()
+
+
+2、
+
+# coding:UTF-8
+def set():
+	num = 100 # 定义在函数中的变量
+def out():
+	print(num)
+out()
+
+3、
+
+# coding:UTF-8
+num = 100 		# 定义在文件里面属于全局变量（Global）
+def change_num():
+	"""
+	修改num变量的内容
+	"""
+	num = 30 			# 定义局部变量（Local）
+	print("change_num()函数中的num变量：%d" % num)
+change_num()
+print("全局变量num：%d" % num)
+
+4、
+
+# coding:UTF-8
+num = 100 		# 定义在文件里面属于全局变量（Global）
+def change_num():
+	"""
+	修改num变量的内容
+	"""
+	global num 	# 将明确的表示调用是全局num
+	num = 30 			# 访问的是全局变量
+	print("change_num()函数中的num变量：%d" % num)
+change_num()
+print("全局变量num：%d" % num)
+
+5、
+# coding:UTF-8
+GLOBAL_VAR_URL = "www.mldn.cn"		# 定义全局变量
+def change_num():
+	local_var_msg = "hello"
+
+6、
+# coding:UTF-8
+number = 100 		# 定义全局变量
+def print_var():
+	"""
+	该函数的主要功能是进行一些局部变量的定义同时进行所有变量的输出（包括全局变量与局部变量）
+	"""
+	num = 30 		# 局部变量
+	info = "科技软件学院：www.baidu.cn"
+	print(globals())
+	print(locals())
+print_var()
+
+7、
+# coding:UTF-8
+number = 100 		# 定义全局变量
+def print_var():
+	"""
+	该函数的主要功能是进行一些局部变量的定义同时进行所有变量的输出（包括全局变量与局部变量）
+	"""
+	num = 30 		# 局部变量
+	info = "科技软件学院：www.baidu.cn"
+print(print_var.__doc__)
+
+
+8、
+
+# coding:UTF-8
+def outer_add(n1):
+	def inner_add(n2):
+		return n1 + n2 	# n1是外部参数，n2是local参数
+	return inner_add # 直接返回内部函数的引用
+# 相当于确认了n1的内容
+oa = outer_add(100)		# outer_add()返回一个内部函数
+print("加法计算结果：%d" % oa(20))
+print("加法计算结果：%d" % oa(50))
+
+
+9、
+
+# coding:UTF-8
+def print_data(count):
+	def out(data):
+		nonlocal count 		# 使用nonlocal关键字描述本次不是本地变量
+		# 如果此时的count变量不加入任何的修改，那么就表示本地变量
+		count += 1 		# 修改外部函数的参数内容
+		return "第{}次输出数据：{}".format(count,data)
+	return out 		# 返回内部函数
+oa = print_data(0)		# 初始化的计数值
+print(oa("www.mldn.cn"))
+print(oa("www.mldn.cn"))
+
+10、
+
+# coding:UTF-8
+def sum(x,y):
+	return x + y
+print(sum(10,20))
+
+11、
+
+# coding:UTF-8
+# sum是一个函数引用的标记名称
+sum = lambda x,y: x + y		# 定义lambda函数
+print(sum(10,20))
+
+12、
+
+# coding:UTF-8
+def add(n1):
+	return lambda n2 : n1 + n2
+oper = add(100)
+print(oper(30))
+
+13、
+# coding:UTF-8
+def add(n1):
+	return lambda n2 : n1 + n2
+print(__name__)
+
+14、
+# coding:UTF-8
+def add(n1):
+	return lambda n2 : n1 + n2
+# 主函数的名称是否必须是main()，那么也是由用户来决定的
+def main():	# 主函数的特点是不需要有返回值， 而且代码的调用要简单
+	oper = add(100)
+	print(oper(30))	
+if __name__ == "__main__":
+	main()	# 主函数表示一切的起点
+
+
+
+
+
+
+
+
+
+

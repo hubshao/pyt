@@ -1,0 +1,186 @@
+1、
+
+# coding:UTF-8
+# 既然字符串本身也属于序列，所以序列的索引依然是从0开始的
+title = "魔乐科技软件学院：www.mldn.cn"	
+sub_url = title[9:]	# 截取里面的网址数据，设置捷径可以避免长度的计算
+sub_name = title[:8]	# 截取名称
+print(sub_name)
+print(sub_url)
+
+
+
+2、
+
+# coding:UTF-8
+title = "www.mldn.cn"	
+print("字符串长度：%d" % len(title))
+print("最大字符：%c" % max(title))
+print("最小字符：%c" % min(title))
+
+
+3、
+
+# coding:UTF-8
+title = "www.mldn.cn"	
+if "mldn" in title:
+	print("子字符串存在！")
+
+
+4、
+
+# coding:UTF-8
+info = "姓名：%s，年龄：%d" % ("小李老师",18)
+print(info)
+
+5、
+"... {成员标记 !转换格式 :格式描述} ...".format(参数内容,...)
+
+6、
+# coding:UTF-8
+name = "小李同学"
+age = 18
+score = 97.5
+message = "姓名：{}，年龄：{}、成绩：{}".format(name,age,score)
+print(message)
+
+7、
+
+# coding:UTF-8
+name = "小李同学"
+age = 18
+score = 97.5
+message = "姓名：{name_param}，年龄：{age_param}、成绩：{score_param}" \
+	.format(age_param = age , score_param=score,name_param=name)
+print(message)
+
+8、
+# coding:UTF-8
+name = "小李同学"
+age = 18
+score = 97.5
+message = "姓名：{2}，年龄：{0}、成绩：{1}" \
+	.format(age , score, name)
+print(message)
+
+9、
+
+# coding:UTF-8
+infos = ["小李同学",18,97.56]
+message = "姓名：{list_param[0]}，年龄：{list_param[1]}、成绩：{list_param[2]}".format(list_param=infos)
+print(message)
+
+10、
+
+# coding:UTF-8
+print("UNICODE编码：{info!a}".format(info="小李老师"))
+print("成绩：{info:6.2f}".format(info=98.23456))
+print("收入：{numA:G}、收入：{numB:E}".format(numA=929293,numB=7828281))
+print("二进制数据：{num:#b}".format(num=10))
+print("八进制数据：{num:#o}".format(num=10))
+print("十六进制数据：{num:#X}".format(num=10))
+
+11、
+
+# coding:UTF-8
+msg = "www.mldn.cn"
+print("数据居中显示【{info:^20}】".format(info=msg))
+print("数据填充：{info:_^20}".format(info=msg))
+print("带符号数字的填充：{num:^+20.3f}".format(num=129.2345376))
+print("右对齐：{n:>20.2f}".format(n=25))
+print("数字使用“,”分割：{num:,}".format(num=9239023902390.23424134))
+print("设置显示精度：{info:.9}".format(info=msg))
+
+12、
+# coding:UTF-8
+trigle_line = 6 		# 输出的总行数
+format_str = "{:^" + str(trigle_line * 2) + "}"	# 设置居中的填充长度
+for num in range(1,trigle_line*2 + 1,2) :	# 设置步长为2
+	print(format_str.format("*" * num))
+
+
+13、
+
+# coding:UTF-8
+info = "魔乐科技软件学院：www.mldn.cn"
+print(info.center(100))		# 居中显示
+print(info.upper())	# 转大写
+print(info.lower())	# 转小写
+print("yootk".capitalize())# 首字母大写
+
+14、
+# coding:UTF-8
+print("www.mldn.cn".find("mldn"))		# 4
+print("www.mldn.cn".find("yootk"))		# -1
+
+
+15、
+# coding:UTF-8
+print("www.mldn.cn".find("mldn"))		# 4
+print("www.mldn.cn".find("yootk"))		# -1
+print("hello mldn hello world".find("hello",5))	# 从第5个索引开始查找
+print("hello mldn hello world".find("hello",5,10))	# 这个范围没有内容
+
+16、
+# coding:UTF-8
+url = ".".join(["www","mldn","cn"])		# 定义列表
+author = "_".join("李兴华老师")	# 定义字符串（序列）
+print("作者：{author_param}，网站：{url_param}".format(author_param=author,url_param=url))
+
+17、
+# coding:UTF-8
+ip = "192.168.1.123"		# 定义字符串
+print("数据全部拆分：%s" % ip.split("."))
+print("数据全部拆分：%s" % ip.split(".",2))
+date = "2020-02-17 21:56:33"	# 日期时间
+result = date.split(" ")
+print("日期数据拆分：%s" % (result[0].split("-")))
+print("时间数据拆分：%s" % (result[1].split(":")))
+
+
+18、
+
+# coding:UTF-8
+infos = "Hello MLDN Hello 李兴华 Hello Python"
+str_a = infos.replace("Hello","你好")
+str_b = infos.replace("Hello","你好",2)		# 替换次数
+print("字符串全部替换：%s" % str_a)
+print("字符串部分替换：%s" % str_b)
+
+19、
+# coding:UTF-8
+str_a = "www mldn cn"		# 里面缺少“.”
+mt_a = str_a.maketrans(" ",".")		# 定义转换表
+print(str_a.translate(mt_a))
+str_b = "www_mldn_cn;\twww_jixianit_com;"
+mt_b = str_b.maketrans("_",".",";")
+print(str_b.translate(mt_b))
+
+20、
+# coding:UTF-8
+# 定义一个数据的格式“用户名:密码”
+login_info = "     mldn:hello    "
+result = login_info.split(":")		# 拆分后取出用户名和密码
+if(result[0]=="mldn" and result[1]=="hello"):
+	print("登录成功，欢迎%s用户访问" % result[0])
+
+21、
+# coding:UTF-8
+# 定义一个数据的格式“用户名:密码”
+login_info = "     mldn:hello    ".strip()
+result = login_info.split(":")		# 拆分后取出用户名和密码
+if(result[0]=="mldn" and result[1]=="hello"):
+	print("登录成功，欢迎%s用户访问" % result[0])
+
+22、
+
+# coding:UTF-8
+# 定义一个数据的格式“用户名:密码”
+login_info = input("请输入登录信息（格式：“用户名:密码”）：").strip()
+if(len(login_info) == 0 or login_info.find(":")==-1):	# 输入格式错误
+	print("数据输入错误，请重新执行本程序！")
+else:
+	result = login_info.split(":")		# 拆分后取出用户名和密码
+	if(result[0]=="mldn" and result[1]=="hello"):
+		print("登录成功，欢迎%s用户访问" % result[0])
+

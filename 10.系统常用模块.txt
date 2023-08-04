@@ -1,0 +1,148 @@
+1、
+
+# coding:UTF-8
+import sys		# 导入sys模块
+print("程序包含模块：%s" % sys.modules)
+print("程序加载路径：%s" % sys.path)	# 设置所有的程序加载路径
+print("程序运行平台：%s" % sys.platform)
+print("程序默认编码：%s" % sys.getdefaultencoding())
+
+
+2、
+# coding:UTF-8
+import sys
+sys.path[0] = "src"		# 定义模块的加载路径
+from cn.mldn.info import *		# 只有通配符可以观察到
+print(message.get_mldn())
+
+3、
+
+# coding:UTF-8
+import sys		# 导入sys模块
+print("输入参数个数：%d" % len(sys.argv))
+if len(sys.argv) == 1:
+	print("程序没有输入执行参数，无法执行，程序退出！")
+	sys.exit(0)
+else:
+	print("程序输入参数：",end="")
+	for item in sys.argv:
+		print(item,end="、")
+
+
+4、
+
+# coding:UTF-8
+member_info = dict(name="小李老师",interest=["看书","电影"])
+copy_info = member_info # 发生了引用传递
+copy_info["interest"].append("旅游")
+print(member_info)
+
+5、
+# coding:UTF-8
+import copy
+member_info = dict(name="小李老师",interest=["看书","电影"])
+copy_info = copy.copy(member_info) # 浅拷贝
+copy_info.update({"info":"www.yootk.com"})
+# 对拷贝后的对象进行内容的修改
+copy_info["interest"].append("旅游")
+print(member_info)
+print(copy_info)
+
+6、
+
+# coding:UTF-8
+import copy
+member_info = dict(name="小李老师",interest=["看书","电影"])
+copy_info = copy.deepcopy(member_info) # 深拷贝
+copy_info.update({"info":"www.yootk.com"})
+# 对拷贝后的对象进行内容的修改
+copy_info["interest"].append("旅游")
+print(member_info)
+print(copy_info)
+
+7、
+
+# coding:UTF-8
+member_info = dict(name="小李老师",interest=["看书","电影"])
+copy_info = member_info.copy() # 进行数据拷贝
+copy_info.update({"info":"www.yootk.com"})
+# 对拷贝后的对象进行内容的修改
+copy_info["interest"].append("旅游")
+print(member_info)
+print(copy_info)
+
+
+8、
+# coding:UTF-8
+def add(a,b,c=2):
+	return a + b + c
+print(add(100,200))
+print(add(100,200,30))
+
+9、
+# coding:UTF-8
+from functools import partial
+def add(a,b,c=2):
+	return a + b + c
+plus = partial(add,100,200)	# 此时a和b参数的内容就确定了
+print(plus())	# c参数使用默认值
+print(plus(30))	# 设置参数c的内容
+
+10、
+# coding:UTF-8
+from math import *
+print("阶乘计算：%d" % factorial(10))
+print("累加计算：%d" % fsum(range(101)))
+print("乘方计算：%d" % pow(10,3))
+print("对数计算：%d" % log2(10))
+print("余数计算：%d" % fmod(10,3))
+
+11、
+
+# coding:UTF-8
+from math import *
+print("四舍五入：%d" % round(16.652121))
+print("四舍五入：%10.2f" % round(16.652121,2))
+
+12、
+
+# coding:UTF-8
+from cmath import *
+print("乘方计算：%r" % pow(complex(10,2),2))
+print("对数计算：%r" % log10(complex(10,2)))
+
+13、
+# coding:UTF-8
+from random import *
+for num in range(10):
+	print(randint(1,100),end="、")
+
+
+14、
+# coding:UTF-8
+from random import *
+numbers = [] 		# 定义一个保存号码的列表
+while len(numbers) !=7 :	# 必须满足7个长度保存才可以结束
+	num = randint(1,36)	# 设置一个生成范围
+	if num not in numbers: # 该数据没有
+		numbers.append(num)
+numbers.sort()
+print("选出的数字内容为：%s" % numbers)
+
+15、
+# coding:UTF-8
+from random import *
+numbers = [item * 2 for item in range(10)]
+print("初始化数值列表：%s" % numbers)
+for item in range(5):
+	print(choice(numbers),end="、")
+
+16、
+# coding:UTF-8
+numbers = [1,2,3,4,5,6,7,8,9]
+filter_result = list(filter(lambda item : item % 2 == 0,numbers))
+map_result = list(map(lambda item : item * 2,filter_result))
+from functools import reduce
+reduce_result = reduce(lambda x,y: x + y , map_result)
+print(reduce_result)
+

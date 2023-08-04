@@ -1,0 +1,165 @@
+1、
+
+while 循环结束判断 :
+	循环语句
+	修改循环结束条件
+
+2、
+while 循环结束判断 :
+	循环语句
+	修改循环结束条件
+else:
+	循环语句执行完毕后执行的代码
+
+3、
+# coding:UTF-8
+sum = 0		# 保存计算结果
+num = 1 	# 进行循环初始化条件的定义
+while num <= 100 :	# 循环的结束判断
+	# num变化：0 + 1 + 2 + ... + 100
+	sum += num 	# 要执行的是累加
+	num += 1  	# 修改循环结束条件
+print(sum)
+
+4、
+# coding:UTF-8
+sum = 0		# 保存计算结果
+num = 1 	# 进行循环初始化条件的定义
+while num <= 100 :	# 循环的结束判断
+	# num变化：0 + 1 + 2 + ... + 100
+	sum += num 	# 要执行的是累加
+	# num += 1  	# 修改循环结束条件
+print(sum)
+
+5、
+
+# coding:UTF-8
+sum = 0		# 保存计算结果
+num = 1 	# 进行循环初始化条件的定义
+while num <= 100 :	# 循环的结束判断
+	# num变化：0 + 1 + 2 + ... + 100
+	sum += num 	# 要执行的是累加
+	num += 1  	# 修改循环结束条件
+else:			# 循环执行完毕后
+	print("数字累加计算结果：%d，当前num的数值：%d" % (sum,num))
+print("循环语句之外的程序代码")
+
+6、
+
+# coding:UTF-8
+num_a = 0 
+num_b = 1
+while num_b < 1000 :		# 循环结束条件
+	print(num_b,end="、")
+	# 将num_b的原始内容赋值给num_a，同时修改num_b的内容
+	num_a , num_b = num_b , num_a + num_b
+
+7、
+
+
+for 变量 in 序列:
+	循环语句
+
+8、
+for 变量 in 序列:
+	循环语句
+else:
+	循环语句执行完毕后的语句
+
+
+9、
+# coding:UTF-8
+for num in {1,2,3}:		# 需要定义一个循环的范围
+	print(num , end="、")
+
+10、
+# coding:UTF-8
+for num in range(100):
+	print(num , end="、")
+
+11、
+
+# coding:UTF-8
+for num in range(50,100):
+	print(num , end="、")
+
+12、
+# coding:UTF-8
+for num in range(50,100,3):
+	print(num , end="、")
+
+13、
+# coding:UTF-8
+sum = 0 
+for num in range(101):
+	sum += num 
+else :
+	print("累加计算结果：%d" % sum)
+
+14、
+# coding:UTF-8
+msg = "www.mldn.cn"		# 定义一个字符串
+for item in msg :
+	print(item,end="、")
+
+15、
+# coding:UTF-8
+msg = "www.mldn.cn"		# 定义一个字符串
+for item in msg :
+	if 97 <= ord(item) <= 122:		# 小写字母
+		upper_num = ord(item) - 32 # 大写字母之间差了32
+		# chr()函数可以将编码数值转为字符（Python没有字符的概念）
+		print(chr(upper_num),end="、")
+	else:
+		print(item,end="、")	# 不是小写字母，原样输出
+
+
+16、
+# coding:UTF-8
+for num in range(1,10) :
+	print(num ,end="、")
+
+17、
+
+# coding:UTF-8
+for num in range(1,10) :
+	if num == 3 : 		# 所有的循环控制一定要结合分支语句
+		continue			# 退出本次循环，即：本次循环的后续代码不执行
+	print(num ,end="、")
+
+
+
+18、
+# coding:UTF-8
+for x in range(10) :
+	for y in range(10):
+		print("第%d次循环，y = %d" % (x,y))
+
+19、
+# coding:UTF-8
+for x in range(1,10) :
+	for y in range(1,x+1):
+		print("%d*%d=%d" % (x,y,x*y),end="\t")
+	print()		# 表示换行
+
+
+20、
+
+# coding:UTF-8
+line = 5		# 定义总共要打印的行数
+for x in range(0,line):
+	for z in range(0,line - x):
+		print("",end=" ")
+	for y in range(0,x + 1):
+		print("*",end=" ")
+	print()
+
+21、
+
+# coding:UTF-8
+line = 5		# 定义总共要打印的行数
+for x in range(0,line):
+	print(" " * (line - x),end=" ")
+	print("* " * (x + 1))
+
+
