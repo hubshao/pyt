@@ -1,0 +1,184 @@
+1、
+
+class Member:
+    pass
+
+2、
+
+# coding : UTF-8
+class Member:
+    """
+    进行类中属性的定义，self描述的是类自身的对象，必须要定义
+    name与age是两个必须要传递的参数
+    """
+    def set_info(self, name, age):
+        self.name = name        # 为本对象进行属性的保存
+        self.age = age          # 为本对象进行属性的保存
+    """
+        进行类对象信息的返回
+    """
+    def get_info(self):
+        return "姓名：%s、年龄：%d" % (self.name, self.age)
+
+3、
+# coding : UTF-8
+class Member:
+    """
+    进行类中属性的定义，self描述的是类自身的对象，必须要定义
+    name与age是两个必须要传递的参数
+    """
+    def set_info(self, name, age):
+        self.name = name        # 为本对象进行属性的保存
+        self.age = age          # 为本对象进行属性的保存
+    """
+        进行类对象信息的返回
+    """
+    def get_info(self):
+        return "姓名：%s、年龄：%d" % (self.name, self.age)
+def main():
+    mem = Member()              # 实例化类对象
+    print(type(mem.get_info))
+    #mem.set_info("小李老师", 18)        # 通过实例化对象调用类中的方法
+    #print(mem.get_info())
+if __name__ == "__main__":
+    main()
+
+4、
+# coding : UTF-8
+class Member:
+    """
+    进行类中属性的定义，self描述的是类自身的对象，必须要定义
+    name与age是两个必须要传递的参数
+    """
+    def set_info(this, name, age):
+        this.name = name        # 为本对象进行属性的保存
+        this.age = age          # 为本对象进行属性的保存
+    """
+        进行类对象信息的返回
+    """
+    def get_info(this):
+        return "姓名：%s、年龄：%d" % (this.name, this.age)
+def main():
+    mem = Member()              # 实例化类对象
+    mem.set_info("小李老师", 18)        # 通过实例化对象调用类中的方法
+    print(mem.get_info())
+if __name__ == "__main__":
+    main()
+
+5、
+# coding : UTF-8
+class Member:
+    """
+    进行类中属性的定义，self描述的是类自身的对象，必须要定义
+    name与age是两个必须要传递的参数
+    """
+    def set_info(self, name, age):
+        self.name = name        # 为本对象进行属性的保存
+        self.age = age          # 为本对象进行属性的保存
+    """
+        进行类对象信息的返回
+    """
+    def get_info(self):
+        return "姓名：%s、年龄：%d" % (self.name, self.age)
+def main():
+    mem = Member()              # 实例化类对象
+    mem.set_info("小李老师", 18)        # 通过实例化对象调用类中的方法
+    print("我的姓名：%s、我的年龄：%s" % (mem.name, mem.age))
+if __name__ == "__main__":
+    main()
+
+6、
+
+
+# coding : UTF-8
+class Member:
+    """
+        进行类对象信息的返回
+    """
+    def get_info(self):
+        return "姓名：%s、年龄：%d" % (self.name, self.age)
+def main():
+    mem = Member()              # 实例化类对象
+    mem.name = "小李老师"       # 外部动态设置对象实例属性
+    mem.age = 18                # 外部动态设置对象实例属性
+    print("我的姓名：%s、我的年龄：%s" % (mem.name, mem.age))
+if __name__ == "__main__":
+    main()
+
+7、
+# coding : UTF-8
+class Member:
+    """
+        进行类对象信息的返回
+    """
+    def get_info(self):
+        return "姓名：%s、年龄：%d" % (self.name, self.age)
+def main():
+    mem = Member()              # 实例化类对象
+    #mem.name = "小李老师"       # 外部动态设置对象实例属性
+    mem.age = 18                # 外部动态设置对象实例属性
+    print("我的姓名：%s、我的年龄：%s" % (mem.name, mem.age))
+if __name__ == "__main__":
+    main()
+
+
+
+8、
+# coding : UTF-8
+class Member:
+    pass                # 此时类中并没有定义任何的内容
+def main():
+    mem = Member()              # 实例化类对象
+    mem.name = "小李老师"       # 外部动态设置对象实例属性
+    mem.age = 18                # 外部动态设置对象实例属性
+    print("我的姓名：%s、我的年龄：%s" % (mem.name, mem.age))
+if __name__ == "__main__":
+    main()
+
+
+9、
+
+# coding : UTF-8
+class Member:
+    def get_info(self):
+        return "姓名：%s、年龄：%s" % (self.name, self.age)
+def change_member_info(temp):
+    """
+    接收一个引用对象，随后进行该对象属性的修改
+    :param temp: 要修改的对象引用
+    :return: NoneType
+    """
+    temp.name = "李兴华"           # 修改name属性
+    temp.age = 19               # 修改age属性
+def main():
+    mem = Member()              # 实例化类对象
+    mem.name = "小李老师"       # 外部动态设置对象实例属性
+    mem.age = 18                # 外部动态设置对象实例属性
+    change_member_info(mem)     # 修改对象属性
+    print(mem.get_info())
+if __name__ == "__main__":
+    main()
+
+
+10、
+# coding : UTF-8
+class Member:
+    def set_info(self, name, age):
+        self.name = name
+        self.age = age
+    def get_info(self):
+        return "姓名：%s、年龄：%s" % (self.name, self.age)
+def main():
+    mem_a = Member()              # 实例化类对象
+    mem_b = Member()  # 实例化类对象
+    mem_a.set_info("小李老师", 18)
+    mem_b.set_info("于顺",57)
+    print("【引用传递前】mem_a对象地址：%d、mem_b对象地址：%d" % (id(mem_a), id(mem_b)))
+    mem_b = mem_a 
+    print("【引用传递后】mem_a对象地址：%d、mem_b对象地址：%d" % (id(mem_a), id(mem_b)))
+if __name__ == "__main__":
+    main()
+
+
+
+

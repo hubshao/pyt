@@ -1,0 +1,357 @@
+1、
+# coding : UTF-8
+class Member:
+    def set_info(self, name, age):
+        self.name = name
+        self.age = age
+def main():
+    mem = Member()              # 实例化类对象
+    mem.set_info("小李老师", 18)
+    print(mem.name)
+    print(mem.age)
+if __name__ == "__main__":
+    main()
+
+2、
+# coding : UTF-8
+class Member:
+    def set_info(self, name, age):
+        self.__name = name          # 实现了属性封装
+        self.__age = age          # 实现了属性封装
+def main():
+    mem = Member()              # 实例化类对象
+    mem.set_info("小李老师", 18)
+    print(mem.name)
+    print(mem.age)
+if __name__ == "__main__":
+    main()
+
+3、
+
+# coding : UTF-8
+class Member:
+    def set_name(self, name):
+        self.__name = name
+    def set_age(self, age):
+        self.__age = age
+    def get_name(self):
+        return self.__name
+    def get_age(self):
+        return self.__age
+def main():
+    mem = Member()              # 实例化类对象
+    mem.set_name("小李老师")
+    mem.set_age(18)
+    print("姓名：%s、年龄：%s" % (mem.get_name(), mem.get_age()))
+if __name__ == "__main__":
+    main()
+
+
+4、
+
+# coding : UTF-8
+class Member:
+    def set_name(self, name):
+        self.__name = name
+    def get_name(self):
+        return self.__name
+    def inner_change(self, temp):
+        self.__name = "李兴华老师"       # 内部访问
+def main():
+    mem = Member()              # 实例化类对象
+    mem.set_name("小李老师")
+    mem.inner_change(mem)       # 传递本类引用
+    print("姓名：%s" % mem.get_name())
+if __name__ == "__main__":
+    main()
+
+5、
+
+# coding : UTF-8
+class Member:
+    def __init__(self):
+        print("实例化Member类对象。")
+def main():
+    mem_a = Member()              # 实例化类对象
+    mem_b = Member()              # 实例化类对象
+if __name__ == "__main__":
+    main()
+
+6、
+class Member:
+    def __init__(self):
+        pass
+
+7、
+
+# coding : UTF-8
+class Member:
+    pass            # 此时类中也会提供有无参构造方法（自动生成的）
+def main():
+    dir_list = dir(Member)      # 列出Member类的结构
+    for item in dir_list:
+        if item == "__init__":
+            print("Member类中存在有无参构造方法！")
+if __name__ == "__main__":
+    main()
+
+8、
+# coding : UTF-8
+class Member:
+    def __init__(self, name, age):
+        self.__name = name
+        self.__age = age
+    def get_info(self):
+        return "姓名：%s、年龄：%s" % (self.__name, self.__age)
+    # setter、getter相关方法、略
+def main():
+    mem = Member("小李老师", 18)
+    print(mem.get_info())
+if __name__ == "__main__":
+    main()
+
+
+9、
+# coding : UTF-8
+class Member:
+    def __init__(self, **kwargs):
+        self.__name = kwargs.get("name")
+        self.__age = kwargs.get("age")
+    def get_info(self):
+        return "姓名：%s、年龄：%s" % (self.__name, self.__age)
+    # setter、getter相关方法、略
+def main():
+    mem_a = Member(name="小李老师", age=18)
+    print(mem_a.get_info())
+    mem_b = Member(age=18)
+    print(mem_b.get_info())
+    mem_c = Member(name="小李老师")
+    print(mem_c.get_info())
+if __name__ == "__main__":
+    main()
+
+10、
+
+
+# coding : UTF-8
+class Member:
+    def __init__(self, **kwargs):
+        print("【构造方法】实例化新对象，当前对象的地址：%s" % id(self))
+        self.__name = kwargs.get("name")
+        self.__age = kwargs.get("age")
+    def __del__(self):
+        print("〖析构方法〗资源被释放，当前对象的地址：%s" % id(self))
+    def get_info(self):
+        return "姓名：%s、年龄：%s" % (self.__name, self.__age)
+    # setter、getter相关方法、略
+def main():
+    mem_a = Member()       # 实例化新对象
+    mem_b = Member(name="小李老师", age=18)       # 实例化新对象
+    print("｛对象实例化｝mem_a地址：%s、mem_b地址：%s" % (id(mem_a), id(mem_b)))
+    del mem_b           # 删除对象，会调用析构方法
+    print(mem_a.get_info())
+if __name__ == "__main__":
+    main()
+
+11、
+
+# coding : UTF-8
+class Member:
+    def __init__(self, **kwargs):
+        print("【构造方法】实例化新对象，当前对象的地址：%s" % id(self))
+        self.__name = kwargs.get("name")
+        self.__age = kwargs.get("age")
+    def __del__(self):
+        print("〖析构方法〗资源被释放，当前对象的地址：%s" % id(self))
+    def get_info(self):
+        return "姓名：%s、年龄：%s" % (self.__name, self.__age)
+    # setter、getter相关方法、略
+def main():
+    print(Member(name="小李老师", age=18).get_info())   # 匿名对象
+if __name__ == "__main__":
+    main()
+
+
+12、
+
+# coding : UTF-8
+class Message:
+    info = "www.yootk.com"          # 定义类属性
+def main():
+    print(Message.info)     # 类属性可以直接通过类名称调用
+if __name__ == "__main__":
+    main()
+
+13、
+# coding : UTF-8
+class Message:
+    info = "www.yootk.com"          # 定义类属性
+def main():
+    msg_a = Message()
+    msg_b = Message()
+    # 此时通过实例化属性访问了类属性的内容（允许）
+    print("【属性修改前】msg_a.info：%s、msg_b.info：%s" % (msg_a.info, msg_b.info))
+    msg_a.info = "小李老师"
+    print("【属性修改后】msg_a.info：%s、msg_b.info：%s" % (msg_a.info, msg_b.info))
+    print(Message.info)
+if __name__ == "__main__":
+    main()
+
+14、
+# coding : UTF-8
+class Message:
+    def __init__(self):
+        Message.title = "优拓"
+def main():
+    Message.url = "www.yootk.com"
+    msg = Message()
+    print("%s：%s" % (msg.title, msg.url))
+if __name__ == "__main__":
+    main()
+
+
+15、
+# coding : UTF-8
+class Member:
+    __slots__ = ("name", "age")     # 类中只允许有name和age属性
+def main():
+    mem = Member()          # 实例化类对象
+    mem.name = "小李老师"
+    mem.age = 18
+    print("姓名：%s、年龄：%s" % (mem.name, mem.age))
+if __name__ == "__main__":
+    main()
+
+16、
+# coding : UTF-8
+class Member:
+    __slots__ = ("name", "age")     # 类中只允许有name和age属性
+def main():
+    mem = Member()          # 实例化类对象
+    mem.name = "小李老师"
+    mem.age = 18
+    Member.school = "清华大学"
+    print("姓名：%s、年龄：%s、学校：%s" % (mem.name, mem.age, Member.school))
+if __name__ == "__main__":
+    main()
+
+17、
+# coding : UTF-8
+class Message:
+    def send(self, msg):
+        conn = Message.Connect()              # 内部类的名称：“外部类.内部类”
+        if conn.build():
+            print("【Message】发送消息：%s" % msg)
+            conn.close()
+        else:
+            print("【ERROR】消息通道创建失败，无法进行消息发送。")
+    class Connect:
+        def build(self):
+            print("【Connect】建立消息发送通道。")
+            return True
+        def close(self):
+            print("【Connect】关闭消息连接通道。")
+def main():
+    msg = Message()
+    msg.send("www.mldn.cn")
+if __name__ == "__main__":
+    main()
+
+18、
+# coding : UTF-8
+class Message:
+    def send(self, msg):
+        conn = Message.Connect()              # 内部类的名称：“外部类.内部类”
+        if conn.build():
+            print("【Message】发送消息：%s" % msg)
+            conn.close()
+        else:
+            print("【ERROR】消息通道创建失败，无法进行消息发送。")
+    class Connect:
+        def build(self):
+            print("【Connect】建立消息发送通道。")
+            return True
+        def close(self):
+            print("【Connect】关闭消息连接通道。")
+def main():
+    conn = Message.Connect()
+    print(conn.build())
+if __name__ == "__main__":
+    main()
+
+19、
+# coding : UTF-8
+class Message:
+    def send(self, msg):
+        conn = Message.__Connect()              # 内部类的名称：“外部类.内部类”
+        if conn.build():
+            print("【Message】发送消息：%s" % msg)
+            conn.close()
+        else:
+            print("【ERROR】消息通道创建失败，无法进行消息发送。")
+    class __Connect:
+        def build(self):
+            print("【Connect】建立消息发送通道。")
+            return True
+        def close(self):
+            print("【Connect】关闭消息连接通道。")
+def main():
+    conn = Message.__Connect()
+    print(conn.build())
+if __name__ == "__main__":
+    main()
+
+20、
+# coding : UTF-8
+class Outer:
+    def __init__(self):
+        self.__info = "www.mldn.cn"
+    def get_info(self):
+        return self.__info
+    class __Inner:
+        def __init__(self, out):        # 传递外部类实例
+            self.__out = out
+        def print_info(self):
+            print(self.__out.get_info())
+    def fun(self):
+        inobj = Outer.__Inner(self)     # 实例化内部类对象
+        inobj.print_info()
+def main():
+    out = Outer()
+    out.fun()
+if __name__ == "__main__":
+    main()
+
+21、
+# coding : UTF-8
+class Outer:
+    def __init__(self):
+        self.__info = "www.mldn.cn"
+    def print_info(self, title):        # 外部类访问
+        print("%s：%s" % (title, self.__info))
+    def fun(self, msg):
+        out_obj = self          # 外部类对象
+        subtitle = "软件学院"   # 外部类局部变量
+        class Inner:
+            def send(self):
+                out_obj.print_info(msg + subtitle)
+        Inner().send()          # 匿名对象
+def main():
+    out = Outer()
+    out.fun("魔乐科技")
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
