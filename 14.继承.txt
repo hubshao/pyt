@@ -1,0 +1,304 @@
+1、
+
+class Person:
+    def __init__(self):
+        self.__name = None
+        self.__age = 0
+    def set_name(self, name):
+        self.__name = name
+    def set_age(self, age):
+        self.__age = age
+    def get_name(self):
+        return self.__name
+    def get_age(self):
+        return self.__age
+
+2、
+
+class Student:
+    def __init__(self):
+        self.__name = None
+        self.__age = 0
+        self.__school = None
+    def set_name(self, name):
+        self.__name = name
+    def set_age(self, age):
+        self.__age = age
+    def set_school(self, school):
+        self.__school = school
+    def get_name(self):
+        return self.__name
+    def get_age(self):
+        return self.__age
+    def get_school(self):
+        return self.__school
+
+3、
+# coding : UTF-8
+class Person:
+    def __init__(self):
+        self.__name = None
+        self.__age = 0
+    def set_name(self, name):
+        self.__name = name
+    def set_age(self, age):
+        self.__age = age
+    def get_name(self):
+        return self.__name
+    def get_age(self):
+        return self.__age
+class Student(Person):          # Student类继承Person类
+    pass    # 此时的子类并没有定义任何的其它操作
+def main():
+    stu = Student()         # 实例化子类对象
+    stu.set_name("于顺")      # 通过父类继承而来的方法
+    stu.set_age(47)     # 通过父类继承而来的方法
+    print("姓名：%s、年龄：%s" % (stu.get_name(), stu.get_age()))
+if __name__ == "__main__":
+    main()
+
+4、
+
+# coding : UTF-8
+class Person:
+    def __init__(self):
+        self.__name = None
+        self.__age = 0
+    def set_name(self, name):
+        self.__name = name
+    def set_age(self, age):
+        self.__age = age
+    def get_name(self):
+        return self.__name
+    def get_age(self):
+        return self.__age
+class Student(Person):          # Student类继承Person类
+    def __init__(self):
+        self.__school = None
+    def set_school(self,school):
+        self.__school = school
+    def get_school(self):
+        return self.__school
+def main():
+    stu = Student()         # 实例化子类对象
+    stu.set_name("于顺")      # 通过父类继承而来的方法
+    stu.set_age(47)     # 通过父类继承而来的方法
+    stu.set_school("家里蹲大学") # 子类自己扩充的方法
+    print("姓名：%s、年龄：%s，学校：%s" % (stu.get_name(), stu.get_age(), stu.get_school()))
+if __name__ == "__main__":
+    main()
+
+5、
+# coding : UTF-8
+class Parent:
+    def __init__(self):
+        print("【Parent父类】__init__()")
+class Sub(Parent):      # 子类没有定义任何的内容
+    pass
+def main():
+    sub = Sub() # 实例化子类对象
+if __name__ == "__main__":
+    main()
+
+6、
+# coding : UTF-8
+class Parent:
+    def __init__(self):
+        print("【Parent父类】__init__()")
+class Sub(Parent):      # 子类没有定义任何的内容
+    def __init__(self):
+        print("【Sub子类】__init__()")
+def main():
+    sub = Sub() # 实例化子类对象
+if __name__ == "__main__":
+    main()
+
+7、
+# coding : UTF-8
+class Parent:
+    def __init__(self):
+        print("【Parent父类】__init__()")
+class Sub(Parent):      # 子类没有定义任何的内容
+    def __init__(self):
+        print("【Sub子类】__init__()")
+        super().__init__()      # 由子类调用父类构造
+def main():
+    sub = Sub() # 实例化子类对象
+if __name__ == "__main__":
+    main()
+
+8、
+# coding : UTF-8
+class Parent:
+    def __init__(self):
+        print("【Parent父类】__init__()")
+class Sub(Parent):      # 子类没有定义任何的内容
+    def __init__(self):
+        print("【Sub子类】__init__()")
+    def fun(self):
+        super().__init__()  # 由子类调用父类构造
+def main():
+    sub = Sub() # 实例化子类对象
+    sub.fun()
+if __name__ == "__main__":
+    main()
+
+9、
+
+# coding : UTF-8
+class Message:
+    def send(self, msg):
+        print("【Message】消息发送：%s" % msg)
+class Connect:
+    def build(self):
+        print("【Connect】连接服务器，创建发送连接...")
+        return True
+    def close(self):
+        print("【Connect】服务处理完毕，关闭服务器连接...")
+class NetMessage(Message, Connect): # 此时继承了多个父类
+    def net_message(self,msg):
+        if self.build():        # 通过Connect父类继承
+            self.send(msg)      # 通过Message父类继承
+            self.close()        # 通过Connect父类继承
+        else:
+            print("【Error】服务器连接失败，消息无法发送！")
+def main():
+    net = NetMessage()
+    net.net_message("www.yootk.com")
+if __name__ == "__main__":
+    main()
+
+10、
+# coding : UTF-8
+class Base:
+    def __init__(self):
+        print("【Base】__init__()")
+class ParentA(Base):
+    def __init__(self):
+        print("【ParentA】__init__()")
+class ParentB(Base):
+    def __init__(self):
+        print("【ParentB】__init__()")
+class Sub(ParentA,ParentB):
+    pass
+def main():
+    sub = Sub()
+if __name__ == "__main__":
+    main()
+
+11、
+# coding : UTF-8
+class Base:
+    def __init__(self):
+        print("【Base】__init__()")
+class ParentA(Base):
+    def __init__(self):
+        print("【ParentA】__init__()")
+class ParentB(Base):
+    def __init__(self):
+        print("【ParentB】__init__()")
+class Sub(ParentA,ParentB):
+    pass
+def main():
+    print(Sub.mro())        # 内置函数
+if __name__ == "__main__":
+    main()
+
+12、
+
+# coding : UTF-8
+class Base:
+    pass
+class Parent(Base):
+    pass
+class Message:
+    pass
+class SubA(Parent, Message):
+    pass
+class SubB(Parent, Message):
+    pass
+def main():
+    sub = SubA()
+    msg = Message()
+    print("sub对象所属类型：%s" % sub.__class__)
+    print("msg对象所属类型：%s" % msg.__class__)
+if __name__ == "__main__":
+    main()
+
+13、
+# coding : UTF-8
+class Base:
+    pass
+class Parent(Base):
+    pass
+class Message:
+    pass
+class SubA(Parent, Message):
+    pass
+class SubB(Parent, Message):
+    pass
+def main():
+    sub = SubA()
+    if sub.__class__ == SubA:
+        print("sub是SubA类的对象实例。")
+if __name__ == "__main__":
+    main()
+
+14、
+# coding : UTF-8
+class Base:
+    pass
+class Parent(Base):
+    pass
+class Message:
+    pass
+class SubA(Parent, Message):
+    pass
+class SubB(Parent, Message):
+    pass
+def main():
+    sub = SubA()
+    print(sub.__class__.mro())
+if __name__ == "__main__":
+    main()
+
+
+15、
+# coding : UTF-8
+class Base:
+    pass
+class Parent(Base):
+    pass
+class Message:
+    pass
+class SubA(Parent, Message):
+    pass
+class SubB(Parent, Message):
+    pass
+def main():
+    print("【Parent子类】%s" % Parent.__subclasses__())     # 获取当前类的所有子类
+    print("【SubA父类】%s" % str(SubA.__bases__))
+if __name__ == "__main__":
+    main()
+
+
+16、
+# coding : UTF-8
+class Base:
+    pass
+class Parent(Base):
+    pass
+class Message:
+    pass
+class SubA(Parent, Message):
+    pass
+class SubB(Parent, Message):
+    pass
+def main():
+    sub  = SubA()
+    print(issubclass(sub.__class__,Parent)) # 通过实例化对象判断该对象所属的类是否为Parent子类
+    print(issubclass(SubB, Parent)) # 判断SubB是否为Parent子类
+if __name__ == "__main__":
+    main()
+
+

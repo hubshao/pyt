@@ -1,0 +1,211 @@
+1、
+# coding : UTF-8
+class Channel:
+    def build(self):
+        print("【Channel】通道连接...")
+class DatabaseChannel(Channel):
+    def build(self):        # 保留父类方法名称
+        print("【DatabaseChannel】数据库通道连接...")        # 方法的实现已经有所不同了
+def main():
+    channel = DatabaseChannel()     # 实例化子类对象
+    channel.build()     # 调用子类方法
+if __name__ == "__main__":
+    main()
+
+2、
+# coding : UTF-8
+class Channel:
+    def build(self):
+        print("【Channel】通道连接...")
+class DatabaseChannel(Channel):
+    def build(self):        # 保留父类方法名称
+        super().build()     # 调用父类被覆写过的方法
+        print("【DatabaseChannel】数据库通道连接...")        # 方法的实现已经有所不同了
+def main():
+    channel = DatabaseChannel()     # 实例化子类对象
+    channel.build()     # 调用子类方法
+if __name__ == "__main__":
+    main()
+
+3、
+# coding : UTF-8
+class Message:
+    def get_info(self):
+        return "【Message】www.mldn.cn"
+class DatabaseMessage(Message):
+    def get_info(self):     # 方法覆写
+        return "【DatabaseMessage】MLDN数据库信息"
+class NetMessage(Message):
+    def get_info(self):
+        return "【NetMessage】MLDN网络信息"
+def main():
+    msg = DatabaseMessage()     # 实例化类对象
+    print(msg.get_info())
+if __name__ == "__main__":
+    main()
+
+4、
+# coding : UTF-8
+class Message:
+    def get_info(self):
+        return "【Message】www.mldn.cn"
+class DatabaseMessage(Message):
+    def get_info(self):     # 方法覆写
+        return "【DatabaseMessage】MLDN数据库信息"
+class NetMessage(Message):
+    def get_info(self):
+        return "【NetMessage】MLDN网络信息"
+class Channel:
+    def send(self, msg_obj):
+        print(msg_obj.get_info())       # 统一操作全部为get_info()方法调用，也可能有其它的方法调用
+def main():
+    channel = Channel()
+    channel.send(Message())
+    channel.send(DatabaseMessage())
+    channel.send(NetMessage())
+if __name__ == "__main__":
+    main()
+
+5、
+class Channel:
+    def send(self, msg_obj):
+        print(msg_obj.get_info())       # 统一操作全部为get_info()方法调用，也可能有其它的方法调用
+def main():
+    channel = Channel()
+    channel.send("于顺三八")
+if __name__ == "__main__":
+    main()
+
+6、
+# coding : UTF-8
+class Message:
+    def get_info(self):
+        return "【Message】www.mldn.cn"
+class DatabaseMessage(Message):
+    def get_info(self):     # 方法覆写
+        return "【DatabaseMessage】MLDN数据库信息"
+class NetMessage(Message):
+    def get_info(self):
+        return "【NetMessage】MLDN网络信息"
+class Channel:
+    def send(self, msg_obj):
+        print(msg_obj.get_info())       # 统一操作全部为get_info()方法调用，也可能有其它的方法调用
+def main():
+    print(isinstance("hello",Message))      # False
+    print(isinstance(NetMessage(), Message))    # True
+if __name__ == "__main__":
+    main()
+
+7、
+
+# coding : UTF-8
+class Message:
+    def get_info(self):
+        return "【Message】www.mldn.cn"
+class DatabaseMessage(Message):
+    def get_info(self):     # 方法覆写
+        return "【DatabaseMessage】MLDN数据库信息"
+class NetMessage(Message):
+    def get_info(self):
+        return "【NetMessage】MLDN网络信息"
+class Channel:
+    def send(self, msg_obj):
+        if isinstance(msg_obj, Message):    # 操作限定
+            print(msg_obj.get_info())       # 统一操作全部为get_info()方法调用，也可能有其它的方法调用
+def main():
+    channel = Channel()
+    channel.send("于顺三八")
+    channel.send(Message())
+    channel.send(DatabaseMessage())
+    channel.send(NetMessage())
+if __name__ == "__main__":
+    main()
+
+8、
+# coding : UTF-8
+class Food:
+    def eat(self):
+        pass
+class Bread(Food):
+    def eat(self):  # Python并没有强制定义要覆写方法的需求
+        print("【Bread】吃面包...")
+class Milk(Food):
+    def eat(self):
+        print("【Milk】喝牛奶...")
+def get_food_instance(cls):
+    if cls == "bread":
+        return Bread()
+    elif cls == "milk":
+        return Milk()
+    else:
+        return None
+def main():
+    food = get_food_instance("bread")
+    if food != None:
+        food.eat()
+if __name__ == "__main__":
+    main()
+
+
+9、
+# coding : UTF-8
+class Food:
+    def eat(self):
+        pass
+class FoodReal(Food):
+    def eat(self):
+        print("【FoodReal】享用丰盛的美食。")
+class FoodProxy(Food):
+    def __init__(self, food):
+        self.__food = food      # 真实业务主题对象
+    def prepare(self):
+        print("【FoodProxy】准备做饭的相关食材...")
+    def clear(self):
+        print("【FoodProxy】收拾碗筷，打扫卫生...")
+    def eat(self):
+        self.prepare()
+        self.__food.eat()       # 真实主题
+        self.clear()
+def main():
+    food = FoodProxy(FoodReal())
+    if food != None:
+        food.eat()
+if __name__ == "__main__":
+    main()
+
+10、
+
+# coding : UTF-8
+class Food:
+    def eat(self):
+        pass
+class FoodReal(Food):
+    def eat(self):
+        print("【FoodReal】享用丰盛的美食。")
+class FoodProxy(Food):
+    def __init__(self, food):
+        self.__food = food      # 真实业务主题对象
+    def prepare(self):
+        print("【FoodProxy】准备做饭的相关食材...")
+    def clear(self):
+        print("【FoodProxy】收拾碗筷，打扫卫生...")
+    def eat(self):
+        self.prepare()
+        self.__food.eat()       # 真实主题
+        self.clear()
+def get_food_instance():
+    return FoodProxy(FoodReal())
+def main():
+    food = get_food_instance()
+    if food != None:
+        food.eat()
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
